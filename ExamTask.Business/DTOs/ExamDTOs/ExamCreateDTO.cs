@@ -22,7 +22,7 @@ namespace ExamTask.Business.DTOs.ExamDTOs
 				.NotEmpty();
 			RuleFor(x => x.Grade)
 				.NotEmpty()
-				.InclusiveBetween((byte)1, (byte)5);
+				.InclusiveBetween((byte)0, (byte)5);
         }
 	}
 }

@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Exams";
+}
+
+@model IEnumerable<ExamListDTO>
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Exam Table</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Lesson</th>
+                            <th>Student</th>
+                            <th>Date</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="4" style="text-align:center">NO DATA</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var exam in Model)
+                            {
+                                <tr>
+                                    <td>@exam.LessonName</td>
+                                    <td>@exam.StudentName @exam.StudentSurname</td>
+                                    <td>@exam.ExamDate</td>
+                                    <td>@exam.Grade</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

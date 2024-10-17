@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ExamTask.Core.Entities;
-using Microsoft.Data.SqlClient;
 
 namespace ExamTask.DAL.Configurations
 {

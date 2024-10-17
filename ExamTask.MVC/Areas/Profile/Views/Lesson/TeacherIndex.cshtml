@@ -1,0 +1,45 @@
+﻿﻿@{
+    ViewData["Title"] = "Lessons";
+}
+
+@model IEnumerable<LessonListDTO>
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Lesson Table</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Lesson</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="2" style="text-align:center">NO DATA</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var lesson in Model)
+                            {
+                                <tr>
+                                    <td>@lesson.LessonName</td>
+                                    <td>@lesson.ClassNumber</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

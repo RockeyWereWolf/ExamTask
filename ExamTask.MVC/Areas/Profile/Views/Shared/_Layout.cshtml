@@ -59,6 +59,29 @@
                         <span>Exams CRUD</span>
                     </a>
                 }
+                else if (User.IsInRole(nameof(Roles.Student)))
+                {
+                    <a class="nav-link" asp-controller="Lesson" asp-action="StudentIndex">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Lessons</span>
+                    </a>
+                    <a class="nav-link" asp-controller="Exam" asp-action="StudentIndex">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Exams</span>
+                    </a>
+                }
+                else
+                {
+                    <a class="nav-link" asp-controller="Lesson" asp-action="TeacherIndex">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Lessons</span>
+                    </a>
+                    <a class="nav-link" asp-controller="Exam" asp-action="TeacherIndex">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Exams</span>
+                    </a>
+                }
+                
             </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
