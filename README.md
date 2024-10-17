@@ -11,7 +11,7 @@ Default Admin account is created automatically on app's first run with following
 - "Username": "Admin"
 - "Password": "Admin123%"
 
-You can check how application by logging in with this account and then creating students, teachers, exams etc.
+You can check how application by login in with this account and then creating students, teachers, exams etc.
 
 ## It is the first my MVC app created with Repository Pattern 
 
