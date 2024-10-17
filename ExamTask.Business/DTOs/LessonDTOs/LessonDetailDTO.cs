@@ -12,5 +12,6 @@ namespace ExamTask.Business.DTOs.LessonDTOs
         public byte ClassNumber { get; set; }
         public string TeacherName { get; set; }
         public string TeacherSurname { get; set; }
+        public string TeacherId { get; set; }
     }
 }

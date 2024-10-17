@@ -38,7 +38,7 @@ namespace ExamTask.Business.Services.Implements
 		}
 
 		public IEnumerable<ExamListDTO> GetAll()
-			=> _mapper.Map<IEnumerable<ExamListDTO>>(_repo.GetAll(includes: "AppUser")); //.Include(x=> x.AppUser)
+			=> _mapper.Map<IEnumerable<ExamListDTO>>(_repo.GetAll(includes: new string[] { "Student", "Lesson" })); //.Include(x=> x.AppUser)
         public async Task<ExamDetailDTO> GetByIdAsync(int id)
 		{
 			var data = await _checkId(id, true);
@@ -69,7 +69,7 @@ namespace ExamTask.Business.Services.Implements
         async Task<Exam> _checkId(int id, bool isTrack = false)
 		{
 			if (id <= 0) throw new ArgumentException();
-			var data = await _repo.GetByIdAsync(id, isTrack, "AppUser");
+			var data = await _repo.GetByIdAsync(id, isTrack, "Student");
 			if (data == null) throw new NotFoundException<Exam>();
 			return data;
 		}

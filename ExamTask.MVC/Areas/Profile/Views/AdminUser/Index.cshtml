@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Users CRUD";
+}
+
+@model IEnumerable<UserListDTO>
+
+<div class="container-fluid">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex align-items-center">
+            <button class="btn btn-link p-0 me-2" data-toggle="collapse" data-target="#teachersTable" aria-expanded="false" aria-controls="teachersTable">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <h6 class="m-0 font-weight-bold text-primary">Admin</h6>
+        </div>
+        <div class="collapse show" id="teachersTable">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th colspan="1" style="text-align:center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Model.Where(user => user.Role == "Admin").Any())
+                            {
+                                <tr>
+                                    <td colspan="4" style="text-align:center">NO DATA</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                foreach (var admin in Model.Where(user => user.Role == "Admin"))
+                                {
+                                    <tr>
+                                        <td>@admin.UserName</td>
+                                        <td>@admin.Name</td>
+                                        <td>@admin.Surname</td>
+                                        <td><a class="btn btn-outline-info" asp-action="UpdateAdmin" asp-route-id="@admin.Id">Update</a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex align-items-center">
+            <button class="btn btn-link p-0 me-2" data-toggle="collapse" data-target="#teachersTable" aria-expanded="false" aria-controls="teachersTable">
+                <i class="fas fa-chevron-down"></i> 
+            </button>
+            <h6 class="m-0 font-weight-bold text-primary">Teachers Table</h6>
+            <a asp-action="CreateTeacher" class="btn btn-outline-success ms-auto">Create</a>
+        </div>
+        <div class="collapse show" id="teachersTable">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th colspan="2" style="text-align:center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Model.Where(user => user.Role == "Teacher").Any())
+                            {
+                                <tr>
+                                    <td colspan="6" style="text-align:center">NO DATA</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                foreach (var teacher in Model.Where(user => user.Role == "Teacher"))
+                                {
+                                    <tr>
+                                        <td>@teacher.Id</td>
+                                        <td>@teacher.UserName</td>
+                                        <td>@teacher.Name</td>
+                                        <td>@teacher.Surname</td>
+                                        <td><a class="btn btn-outline-info" asp-action="UpdateTeacher" asp-route-id="@teacher.Id">Update</a></td>
+                                        <td><a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@teacher.Id">Delete</a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex align-items-center">
+                <button class="btn btn-link p-0 me-2" data-toggle="collapse" data-target="#studentsTable" aria-expanded="false" aria-controls="teachersTable">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <h6 class="m-0 font-weight-bold text-primary">Students Table</h6>
+            <a asp-action="CreateStudent" class="btn btn-outline-success">Create</a>
+        </div>
+        <div class="collapse show" id="studentsTable">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Grade</th>
+                                <th colspan="2" style="text-align:center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Model.Where(user => user.Role == "Student").Any())
+                            {
+                                <tr>
+                                    <td colspan="7" style="text-align:center">NO DATA</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                foreach (var student in Model.Where(user => user.Role == "Student"))
+                                {
+                                    <tr>
+                                        <td>@student.Id</td>
+                                        <td>@student.UserName</td>
+                                        <td>@student.Name</td>
+                                        <td>@student.Surname</td>
+                                        <td>@student.ClassNumber</td>
+                                        <td><a class="btn btn-outline-info" asp-action="UpdateStudent" asp-route-id="@student.Id">Update</a></td>
+                                        <td><a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@student.Id">Delete</a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

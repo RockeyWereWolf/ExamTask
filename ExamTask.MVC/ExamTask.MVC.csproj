@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Profile\Views\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

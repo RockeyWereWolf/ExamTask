@@ -14,5 +14,6 @@ namespace ExamTask.Core.Entities
         public byte? ClassNumber { get; set; }
         public IEnumerable<Lesson>? Lessons { get; set; }
         public IEnumerable<Exam>? Exams { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

@@ -1,0 +1,55 @@
+﻿﻿@{
+    ViewData["Title"] = "Exam CRUD";
+}
+
+@model IEnumerable<ExamListDTO>
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Exam Table</h6>
+            <a asp-action="Create" class="btn btn-outline-success">Create</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Lesson</th>
+                            <th>Student</th>
+                            <th>Date</th>
+                            <th>Score</th>
+                            <th colspan="2" style="text-align:center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="7" style="text-align:center">NO DATA</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var exam in Model)
+                            {
+                                <tr>
+                                    <td>@exam.Id</td>
+                                    <td>@exam.LessonName</td>
+                                    <td>@exam.StudentName @exam.StudentSurname</td>
+                                    <td>@exam.ExamDate</td>
+                                    <td>@exam.Grade</td>
+                                    <td><a class="btn btn-outline-info" asp-action="Update" asp-route-id="@exam.Id">Update</a></td>
+                                    <td><a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@exam.Id">Delete</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

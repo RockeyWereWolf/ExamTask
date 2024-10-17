@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ExamTask.Core.Entities;
-
-namespace ExamTask.Business.DTOs.ExamDTOs
+﻿namespace ExamTask.Business.DTOs.ExamDTOs
 {
 	public class ExamListDTO
 	{
-        public int LessonName { get; set; }
-        public int StudentName { get; set; }
+        public int Id { get; set; }
+        public string LessonName { get; set; }
+        public string StudentName { get; set; }
+        public string StudentSurname { get; set; }
         public DateTime ExamDate { get; set; }
         public byte Grade { get; set; }
     }

@@ -11,6 +11,7 @@ using ExamTask.Business.Services.Implements;
 using ExamTask.Business.Services.Interfaces;
 using FluentValidation.AspNetCore;
 using ExamTask.Business.DTOs.AuthDTOs;
+using static ExamTask.Business.DTOs.UserDTOs.UserCreateDTO;
 
 namespace ExamTask.Business
 {
@@ -32,7 +33,7 @@ namespace ExamTask.Business
         }
         public static IServiceCollection AddBusinessLayer (this IServiceCollection services)
         {
-			services.AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<RegisterDTOValidator>());
+			services.AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<UserCreateDTOValidator>());
 			services.AddAutoMapper(typeof(UserMappingProfile).Assembly);
 			return services;
         }

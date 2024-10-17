@@ -1,10 +1,4 @@
-﻿using ExamTask.Business.DTOs.ExamDTOs;
-using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 
 namespace ExamTask.Business.DTOs.LessonDTOs
 {
@@ -12,7 +6,7 @@ namespace ExamTask.Business.DTOs.LessonDTOs
     {
         public string LessonName { get; set; }
         public byte ClassNumber { get; set; }
-        public int TeacherId { get; set; }
+        public string TeacherId { get; set; }
 
         public class LessonCreateDTOValidator : AbstractValidator<LessonCreateDTO>
         {
@@ -20,6 +14,10 @@ namespace ExamTask.Business.DTOs.LessonDTOs
             {
                 RuleFor(l => l.LessonName)
                     .MaximumLength(30);
+                RuleFor(l => l.TeacherId)
+                    .NotEmpty();
+                RuleFor(x => x.ClassNumber)
+                    .InclusiveBetween((byte)1, (byte)11);
             }
         }
     }

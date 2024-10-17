@@ -8,6 +8,7 @@ namespace ExamTask.Business.DTOs.LessonDTOs
 {
     public class LessonListDTO
     {
+        public int Id { get; set; }
         public string LessonName { get; set; }
         public byte ClassNumber { get; set; }
         public string TeacherName { get; set; }

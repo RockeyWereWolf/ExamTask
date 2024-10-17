@@ -10,8 +10,14 @@ namespace ExamTask.Business.Profiles
 		{
 			CreateMap<ExamCreateDTO, Exam>();
 			CreateMap<ExamUpdateDTO, Exam>();
-			CreateMap<Exam, ExamListDTO>();
-			CreateMap<Exam, ExamDetailDTO>();
-		}
+			CreateMap<Exam, ExamListDTO>()
+				.ForMember(dest => dest.StudentName, opt => opt.MapFrom(src => src.Student.Name))
+				.ForMember(dest => dest.StudentSurname, opt => opt.MapFrom(src => src.Student.Surname))
+				.ForMember(dest => dest.LessonName, opt => opt.MapFrom(src => src.Lesson.LessonName));
+            CreateMap<Exam, ExamDetailDTO>()
+                .ForMember(dest => dest.StudentName, opt => opt.MapFrom(src => src.Student.Name))
+                .ForMember(dest => dest.StudentSurname, opt => opt.MapFrom(src => src.Student.Surname));
+            CreateMap<ExamDetailDTO, ExamUpdateDTO>();
+        }
 	}
 }

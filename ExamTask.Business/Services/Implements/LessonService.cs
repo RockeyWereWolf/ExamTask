@@ -33,7 +33,7 @@ namespace ExamTask.Business.Services.Implements
         }
 
         public IEnumerable<LessonListDTO> GetAll()
-            => _mapper.Map<IEnumerable<LessonListDTO>>(_repo.GetAll(includes: "AppUser")); //.Include(x=> x.AppUser)
+            => _mapper.Map<IEnumerable<LessonListDTO>>(_repo.GetAll(includes: "Teacher")); //.Include(x=> x.AppUser)
         public async Task<LessonDetailDTO> GetByIdAsync(int id)
         {
             var data = await _checkId(id, true);
@@ -64,7 +64,7 @@ namespace ExamTask.Business.Services.Implements
         async Task<Lesson> _checkId(int id, bool isTrack = false)
         {
             if (id <= 0) throw new ArgumentException();
-            var data = await _repo.GetByIdAsync(id, isTrack, "AppUser");
+            var data = await _repo.GetByIdAsync(id, isTrack, "Teacher");
             if (data == null) throw new NotFoundException<Lesson>();
             return data;
         }
