@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamTask.MVC", "ExamTask.MVC\ExamTask.MVC.csproj", "{AF32954E-F756-47C0-95BF-25F4FE1DC9AF}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamTask.Core", "ExamTask.Core\ExamTask.Core.csproj", "{2482E2DF-C110-4DA7-A988-3F9BD9CDAF59}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamTask.DAL", "ExamTask.DAL\ExamTask.DAL.csproj", "{CC0DA791-B438-4349-BA77-0E116D347CD5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamTask.Business", "ExamTask.Business\ExamTask.Business.csproj", "{78B9371E-B86F-41FB-9110-9C8BBCC21524}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamTask.MVC", "ExamTask.MVC\ExamTask.MVC.csproj", "{AF32954E-F756-47C0-95BF-25F4FE1DC9AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
