@@ -11,7 +11,7 @@ Default Admin account is created automatically on app's first run with following
 - "Username": "Admin"
 - "Password": "Admin123%"
 
-You can check how application by logining in with this account and then creating students, teachers, exams etc.
+You can check how application by loging in this account with the button at top right of the home page and then creating students, teachers, exams etc at profile page.
 
 Don't forget to change MS SQL connection string and migrdate database before running!(connection string is at appsettings.json file)
 
@@ -29,7 +29,7 @@ Defolt Admin hesabı aşağıdakı etimadnamələrlə tətbiqin ilk işə salın
 - "Username": "Admin"
 - "Password": "Admin123%"
 
-Bu hesabı ilə daxil olaraq tətbiqin necə işlənməsini yoxliya bilərsiz.
+Əsas səhifənin yuxarı sağ tərəfindəki düymə ilə bu hesaba login olub, profil səhifəsində tələbələr, müəllimlər, imtahanlar və s. yaratmaqla tətbiqin necə necə işlənməsini yoxlaya bilərsiniz.
 
 Tətbiqi run eləməzdən əvvəl MS SQL connection string'i dəyişdirməyi və database migrations unutmayın!(connection string appsettings.json faylındadır)
 
